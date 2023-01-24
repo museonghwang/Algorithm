@@ -1,10 +1,8 @@
 a = set(range(1, 10000))
-a_remove = set()
+nonSelfNum = set()
 
-for num in a:
-    for n in str(num):
-        num += int(n)
-    a_remove.add(num)
+for i in range(1, 10001):
+    i += sum(map(int, str(i)))
+    nonSelfNum.add(i)
 
-for num in sorted(a-a_remove):
-    print(num)
+print(*sorted(a - nonSelfNum), sep='\n')
