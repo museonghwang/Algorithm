@@ -1,10 +1,7 @@
-from sys import stdin
+N = int(input())
 
-n = int(stdin.readline())
-count = 1
+num, cnt = 1, 1
+while N > num:
+    num += 6 * cnt; cnt += 1
 
-while n > 1:
-    n -= count * 6
-    count += 1
-
-print(count)
+print(cnt)
