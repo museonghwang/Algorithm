@@ -1,18 +1,11 @@
-X = int(input())
+x = int(input())
+i = 1
 
-line = 0 
-end = 0
+while x > i:
+    x -= i
+    i += 1
 
-while X > end:
-    line += 1
-    end += line
-
-diff = end - X
-if line % 2 == 0:
-    top = line - diff
-    bottom = diff + 1
+if i % 2 == 0:
+    print(f'{x}/{i - x + 1}')
 else:
-    top = diff + 1
-    bottom = line - diff
-
-print(f'{top}/{bottom}')
+    print(f'{i - x + 1}/{x}')
