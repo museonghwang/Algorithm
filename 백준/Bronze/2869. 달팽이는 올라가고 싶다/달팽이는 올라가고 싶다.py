@@ -1,5 +1,3 @@
-import math
-
-a, b, v = map(int, input().split())
-
-print(math.ceil((v-a)/(a-b)+1))
+import sys, math
+A, B, V = map(int, sys.stdin.readline().split())
+print(math.ceil((V-A)/(A-B)+1))
