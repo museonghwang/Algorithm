@@ -1,0 +1,1 @@
+print(96, 'musung5147', sep='\n')
