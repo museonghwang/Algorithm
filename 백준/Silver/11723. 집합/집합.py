@@ -1,12 +1,22 @@
-import sys
-input = sys.stdin.readline
-S = set()
-for _ in range(int(input())):
-    pack = input().rstrip().split()
-    if pack[0]=='add': S.add(int(pack[1]))
-    elif pack[0]=='remove': S.discard(int(pack[1]))
-    elif pack[0]=='check': print(1 if int(pack[1]) in S else 0)
-    elif pack[0]=='toggle':
-        S.discard(int(pack[1])) if int(pack[1]) in S else S.add(int(pack[1]))
-    elif pack[0]=='all': S = set(range(1, 21));
-    elif pack[0]=='empty': S.clear()
+from sys import stdin, stdout
+m = int(stdin.readline())
+_set = 0
+for _ in range(m):
+    order = stdin.readline().split()
+    if order[0] == "all":
+        _set = (1 << 20) - 1
+    elif order[0] == "empty":
+        _set = 0
+    else:
+        num = int(order[1]) - 1
+        if order[0] == "add":
+            _set |= (1 << num)
+        elif order[0] == "remove":
+            _set &= ~(1 << num)
+        elif order[0] == "check":
+            if _set & (1 << num):
+                stdout.write("1\n")
+            else:
+                stdout.write("0\n")
+        else:
+            _set ^= (1 << num)
