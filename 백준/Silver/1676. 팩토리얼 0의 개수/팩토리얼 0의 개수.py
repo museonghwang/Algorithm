@@ -1,12 +1,21 @@
-import sys
-from math import factorial
+n = int(input())
 
-fac = str(factorial(int(sys.stdin.readline())))
-cnt = 0
+count_10 = 0
+count_2 = 0
+count_5 = 0
 
-for i in fac[::-1]:
-    if i != '0':
-        break
-    cnt += 1
+for num in reversed(range(1, n + 1)):
+    while num % 10 == 0:
+        count_10 += 1
+        num = num // 10
+    while num % 5 == 0:
+        count_5 += 1
+        num = num // 5
+    while num % 2 == 0:
+        count_2 += 1
+        num = num // 2
 
-print(cnt)
+zeros = count_10
+zeros += min(count_2, count_5)
+
+print(zeros)
