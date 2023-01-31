@@ -1,9 +1,8 @@
 import sys
-n = int(sys.stdin.readline())
-p = sorted(list(map(int, sys.stdin.readline().split())))
-Pre=0
-Sum=0
-for i in range(n):
-    Pre += p[i]
-    Sum += Pre
-print(Sum)
+input()
+a = list(map(int, sys.stdin.readline().split()))
+a.sort()
+
+for i in range(1, len(a)):
+    a[i] += a[i-1]
+print(sum(a))
