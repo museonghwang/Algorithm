@@ -18,6 +18,6 @@ for i in range(m):
     elif cmd[0] == 'toggle':
         S ^= 1 << int(cmd[-1])
     elif cmd[0] == 'all':
-        S = S | all_S
+        S = all_S
     elif cmd[0] == 'empty':
-        S = S & not_S
+        S = not_S
