@@ -1,8 +1,6 @@
 import sys
 m = int(sys.stdin.readline())
 S = 0b0
-all_S = 0b111111111111111111111
-not_S = 0b000000000000000000000
 
 for i in range(m):
     cmd = sys.stdin.readline().rstrip().split(" ")
@@ -18,6 +16,6 @@ for i in range(m):
     elif cmd[0] == 'toggle':
         S ^= 1 << int(cmd[-1])
     elif cmd[0] == 'all':
-        S = all_S
+        S = 0b111111111111111111111
     elif cmd[0] == 'empty':
-        S = not_S
+        S = 0b000000000000000000000
