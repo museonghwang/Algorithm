@@ -1,9 +1,6 @@
 import sys
-input = sys.stdin.readline
-n, m = map(int, input().split())
-a={}
-for _ in range(n):
-    a.setdefault(*input().rstrip().split())
+input=sys.stdin.readline
+n,m=map(int,input().split())
 
-for _ in range(m):
-    sys.stdout.write(a[input().rstrip()]+'\n')
+a=dict(input().split() for _ in range(n))
+print("\n".join([a[input().strip()] for _ in range(m)]))
