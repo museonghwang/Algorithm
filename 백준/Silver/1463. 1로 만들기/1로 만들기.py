@@ -1,12 +1,20 @@
 import sys
-input = sys.stdin.readline
-N = int(input())
-DP = [0]*(N+1)
-DP[1] = 0
+n = int(sys.stdin.readline())
+dp = {1: 0, 2:1, 3:1}
 
-for i in range(2, N+1):
-    DP[i] = DP[i-1] + 1
-    if i % 2 == 0: DP[i] = min(DP[i], DP[i//2]+1)
-    if i % 3 == 0: DP[i] = min(DP[i], DP[i//3]+1)
+def f(n):
+    if n in dp: return dp[n]
+    if n % 3 == 0 and n % 2 == 0:
+        dp[n] = 1 + min(f(n//3), f(n//2))
+        return dp[n]
+    if n % 3 == 0 and n % 2 != 0:
+        dp[n] = 1 + min(f(n-1), f(n//3))
+        return dp[n]
+    if n % 3 != 0 and n % 2 == 0:
+        dp[n] = 1 + min(f(n-1), f(n//2))
+        return dp[n]
+    else:
+        dp[n] = 1 + f(n-1)
+        return dp[n]
 
-print(DP[N])
+print(f(n))
